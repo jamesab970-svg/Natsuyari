@@ -1350,6 +1350,73 @@
       background: var(--hueso);
     }
 
+
+    /* Dropdown Nosotros */
+    .nav-item-dropdown {
+      position: relative;
+    }
+    .nav-item-dropdown > .nav-dropdown-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .nav-item-dropdown > .nav-dropdown-trigger .caret {
+      font-size: 0.65rem;
+      opacity: 0.7;
+    }
+    .nav-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 250px;
+      background: var(--blanco);
+      border: 1px solid var(--borde);
+      border-radius: var(--radio-sm);
+      box-shadow: var(--sombra);
+      padding: 0.4rem 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(6px);
+      transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+      z-index: 80;
+    }
+    .nav-item-dropdown:hover > .nav-dropdown,
+    .nav-item-dropdown:focus-within > .nav-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .nav-dropdown a {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.6rem 1.1rem;
+      color: var(--texto-suave);
+      font-size: 0.88rem;
+      font-weight: 500;
+      border-radius: 0;
+      white-space: nowrap;
+    }
+    .nav-dropdown a:hover {
+      background: rgba(58, 107, 74, 0.08);
+      color: var(--verde);
+    }
+    .nav-dropdown a i {
+      width: 1.15rem; color: var(--verde); text-align: center; font-size: 0.85rem;
+    }
+    /* Móvil: submenú */
+    .nav-movil .nav-sub {
+      display: flex;
+      flex-direction: column;
+      padding-left: 1rem;
+      border-left: 2px solid var(--borde);
+      margin: 0.25rem 0 0.5rem 0.75rem;
+    }
+    .nav-movil .nav-sub a {
+      font-size: 0.9rem;
+      padding: 0.45rem 0.75rem;
+    }
+
   </style>
 </head>
 <body>
@@ -1366,11 +1433,18 @@
         <a href="#inicio">Inicio</a>
         <a href="#productos">Productos</a>
         <a href="#coleccion">Colección</a>
-        <a href="#nosotros">Nosotros</a>
+        <div class="nav-item-dropdown">
+          <a href="#nosotros" class="nav-dropdown-trigger">Nosotros <i class="fa-solid fa-chevron-down caret" aria-hidden="true"></i></a>
+          <div class="nav-dropdown" role="menu">
+            <a href="#nosotros" role="menuitem"><i class="fa-solid fa-users" aria-hidden="true"></i> Quiénes somos</a>
+            <a href="politica-uso.html" role="menuitem"><i class="fa-solid fa-file-contract" aria-hidden="true"></i> Política de uso</a>
+            <a href="politica-privacidad.html" role="menuitem"><i class="fa-solid fa-user-shield" aria-hidden="true"></i> Política de privacidad</a>
+            <a href="estatuto.html" role="menuitem"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i> Estatuto social</a>
+          </div>
+        </div>
         <a href="#calidad">Calidad</a>
         <a href="#historia">Historia</a>
         <a href="#impacto">Impacto</a>
-        <a href="politicas.html">Políticas</a>
         <a href="#contacto">Contacto</a>
       </nav>
 
@@ -1393,10 +1467,14 @@
     <a href="#coleccion">Colección</a>
     <a href="#cuidados">Cuidados</a>
     <a href="#nosotros">Nosotros</a>
+    <div class="nav-sub">
+      <a href="politica-uso.html">Política de uso</a>
+      <a href="politica-privacidad.html">Política de privacidad</a>
+      <a href="estatuto.html">Estatuto social</a>
+    </div>
     <a href="#calidad">Calidad</a>
     <a href="#historia">Historia</a>
     <a href="#impacto">Impacto</a>
-    <a href="politicas.html">Políticas</a>
     <a href="#contacto">Contacto</a>
   </nav>
 
@@ -1738,7 +1816,7 @@
                 <i class="fa-solid fa-id-card" aria-hidden="true"></i>
                 <div>
                   <strong>RUC</strong>
-                  <span>20612345678</span>
+                  <span>20608505917</span>
                 </div>
               </div>
               <div class="ficha-item">
@@ -1751,15 +1829,22 @@
               <div class="ficha-item">
                 <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
                 <div>
-                  <strong>Sede central</strong>
+                  <strong>Sede Puno</strong>
                   <span>Jr. La Joya Mz. D Lt. 10, Puno, Perú</span>
                 </div>
               </div>
               <div class="ficha-item">
-                <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
                 <div>
-                  <strong>Teléfono fijo</strong>
-                  <a href="tel:+5151241195">(051) 241195</a>
+                  <strong>Sede Juliaca</strong>
+                  <span>Jr. Colon 543, Juliaca, Perú</span>
+                </div>
+              </div>
+              <div class="ficha-item">
+                <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+                <div>
+                  <strong>Partida registral</strong>
+                  <span>11456789 — SUNARP, Zona Registral N° XIII, Puno</span>
                 </div>
               </div>
               <div class="ficha-item">
@@ -1873,7 +1958,9 @@
             <a href="#calidad">Calidad</a>
             <a href="#historia">Historia</a>
             <a href="#impacto">Impacto</a>
-            <a href="politicas.html">Políticas</a>
+            <a href="politica-uso.html">Política de uso</a>
+            <a href="politica-privacidad.html">Privacidad</a>
+            <a href="estatuto.html">Estatuto</a>
             <a href="#contacto">Contacto</a>
           </div>
         </div>
@@ -1881,7 +1968,6 @@
           <h4>Contacto</h4>
           <div class="footer-links">
             <a href="mailto:estefani.vilca1234@gmail.com">estefani.vilca1234@gmail.com</a>
-            <a href="tel:+5151241195">(051) 241195</a>
             <a href="https://wa.me/51950179363" target="_blank" rel="noopener noreferrer">+51 950 179 363</a>
           </div>
         </div>
@@ -1889,15 +1975,15 @@
           <h4>Empresa</h4>
           <div class="footer-links">
             <span>Natsukii Yuyariy S.A.C.</span>
-            <span>RUC 20612345678</span>
-            <span>Jr. La Joya Mz. D Lt. 10</span>
-            <span>Puno, Perú</span>
+            <span>RUC 20608505917</span>
+            <span>Jr. La Joya Mz. D Lt. 10, Puno</span>
+            <span>Jr. Colon 543, Juliaca</span>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
         <span>&copy; 2026 Natsukii Yuyariy S.A.C. Todos los derechos reservados.</span>
-        <span>Datos referenciales con fines ilustrativos. <a href="politicas.html" style="color:inherit;text-decoration:underline">Políticas de uso y privacidad</a>. Ver <a href="politicas.html" style="color:inherit;text-decoration:underline">Políticas de uso</a>.</span>
+        <span>Datos referenciales. <a href="politica-uso.html" style="color:inherit;text-decoration:underline">Política de uso</a> · <a href="politica-privacidad.html" style="color:inherit;text-decoration:underline">Privacidad</a> · <a href="estatuto.html" style="color:inherit;text-decoration:underline">Estatuto</a>.</span>
       </div>
     </div>
   </footer>
@@ -1910,12 +1996,14 @@
     const CONFIG = {
       nombre: "NATSUYARI",
       razonSocial: "Natsukii Yuyariy S.A.C.",
-      ruc: "20612345678",
+      ruc: "20608505917",
       whatsapp: "51950179363",
       correoGeneral: "estefani.vilca1234@gmail.com",
       correoVentas: "estefani.vilca1234@gmail.com",
       telefono: "(051) 241195",
       direccion: "Jr. La Joya Mz. D Lt. 10, Puno, Perú",
+      direccionJuliaca: "Jr. Colon 543, Juliaca, Perú",
+      partidaRegistral: "11456789 — SUNARP, Zona Registral N° XIII, Puno",
       redes: {
         instagram: "https://instagram.com/natsuyari",
         facebook: "https://facebook.com/natsuyari",
