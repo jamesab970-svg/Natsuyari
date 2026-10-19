@@ -2027,7 +2027,7 @@
       60% { transform: translateY(2px) rotate(4deg); }
     }
     @media (max-width: 480px) {
-      #mascotaLlama { width: 72px; bottom: 12px; right: 12px; }
+      #mascotaLlama { width: 110px; bottom: 12px; right: 12px; }
       #mascotaLlama .llama-svg { width: 72px; height: 82px; }
     }
 
@@ -2445,12 +2445,256 @@
       border: 1px solid rgba(255,255,255,0.35) !important;
     }
 
+  
+    /* Perú colorido + líneas de lana */
+    body {
+      background:
+        radial-gradient(ellipse 90% 55% at 0% 0%, rgba(200, 16, 46, 0.08), transparent 50%),
+        radial-gradient(ellipse 80% 50% at 100% 10%, rgba(47, 107, 79, 0.12), transparent 50%),
+        radial-gradient(ellipse 70% 45% at 50% 100%, rgba(212, 160, 23, 0.1), transparent 55%),
+        radial-gradient(ellipse 50% 40% at 80% 60%, rgba(196, 120, 58, 0.1), transparent 50%),
+        linear-gradient(165deg, #FFF9F0 0%, #F5EBD8 30%, #E8F2EA 65%, #FBF4E8 100%) !important;
+      background-attachment: fixed !important;
+    }
+    .bg-decor .hilo {
+      position: absolute;
+      height: 3px;
+      border-radius: 3px;
+      opacity: 0.35;
+      animation: hilo-mover 18s ease-in-out infinite;
+    }
+    .bg-decor .hilo.h1 { top: 12%; left: -5%; width: 35vw; background: linear-gradient(90deg, transparent, #C8102E, #D4A017, transparent); }
+    .bg-decor .hilo.h2 { top: 28%; right: -5%; width: 30vw; background: linear-gradient(90deg, transparent, #2F6B4F, #4A9B6E, transparent); animation-delay: -3s; }
+    .bg-decor .hilo.h3 { top: 48%; left: -8%; width: 40vw; background: linear-gradient(90deg, transparent, #C4783A, #E8A05C, transparent); animation-delay: -7s; }
+    .bg-decor .hilo.h4 { top: 68%; right: -6%; width: 32vw; background: linear-gradient(90deg, transparent, #1B4F8A, #5B9BD5, transparent); animation-delay: -11s; }
+    .bg-decor .hilo.h5 { top: 85%; left: 10%; width: 28vw; background: linear-gradient(90deg, transparent, #D4A017, #C8102E, transparent); animation-delay: -5s; }
+    @keyframes hilo-mover {
+      0%, 100% { transform: translateX(0) rotate(-2deg); opacity: 0.28; }
+      50% { transform: translateX(18px) rotate(2deg); opacity: 0.45; }
+    }
+    .bg-decor .montana { opacity: 0.18 !important; }
+    .bg-decor .lana {
+      border-width: 4px !important;
+      border-color: rgba(200, 16, 46, 0.12) !important;
+      box-shadow: 0 0 0 8px rgba(47,107,79,0.06), 0 0 0 16px rgba(212,160,23,0.05);
+    }
+    /* Natsu más grande */
+    #mascotaLlama { width: 110px !important; }
+    #mascotaLlama .llama-svg { width: 110px !important; height: 125px !important; }
+    @media (max-width: 480px) {
+      #mascotaLlama { width: 110px !important; }
+      #mascotaLlama .llama-svg { width: 90px !important; height: 102px !important; }
+    }
+    /* Por qué más llamativo */
+    .porque-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+      margin-top: 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .porque-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 960px) {
+      .porque-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .porque-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      min-height: 180px;
+      box-shadow: 0 8px 24px rgba(92,61,46,0.12);
+      border: 2px solid transparent;
+      background: #fff;
+      transition: transform 0.25s, box-shadow 0.25s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .porque-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 16px 36px rgba(92,61,46,0.18);
+      border-color: rgba(47,107,79,0.3);
+    }
+    .porque-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      display: block;
+    }
+    .porque-card .porque-body {
+      padding: 0.85rem 1rem 1rem;
+      background: linear-gradient(165deg, #fff, #F8F1E5);
+    }
+    .porque-card .porque-num {
+      font-family: var(--fuente-titulo);
+      font-size: 1.35rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #C4783A, #D4A017);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .porque-card .porque-label {
+      font-size: 0.88rem;
+      color: var(--texto-suave);
+    }
+    .atajos-coloridos {
+      display: grid;
+      gap: 0.75rem;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      margin-top: 1.5rem;
+    }
+    .atajo-vivid {
+      border-radius: 14px;
+      padding: 1.1rem 1rem;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+      min-height: 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .atajo-vivid:hover { transform: translateY(-4px) scale(1.03); color: #fff; }
+    .atajo-vivid span { font-size: 0.78rem; font-weight: 500; opacity: 0.92; margin-top: 0.25rem; }
+    .atajo-vivid i { font-size: 1.25rem; margin-bottom: 0.35rem; opacity: 0.95; }
+    .c1 { background: linear-gradient(135deg, #C8102E, #E85A4F); }
+    .c2 { background: linear-gradient(135deg, #2F6B4F, #4A9B6E); }
+    .c3 { background: linear-gradient(135deg, #1B4F8A, #5B9BD5); }
+    .c4 { background: linear-gradient(135deg, #C4783A, #E8A05C); }
+    .c5 { background: linear-gradient(135deg, #6B3FA0, #9B6BCF); }
+    .c6 { background: linear-gradient(135deg, #D4A017, #E8C547); color: #3d291f !important; }
+    .c6:hover { color: #3d291f !important; }
+
+  
+    /* Adornos de lana peruanos más coloridos */
+    .bg-decor .lana {
+      width: 90px !important;
+      height: 90px !important;
+      border-width: 4px !important;
+    }
+    .bg-decor .lana.l1 {
+      border-color: rgba(196, 48, 48, 0.22) !important;
+      box-shadow: 0 0 0 8px rgba(212, 160, 23, 0.08), inset 0 0 0 6px rgba(47, 107, 79, 0.08);
+    }
+    .bg-decor .lana.l2 {
+      border-color: rgba(47, 107, 79, 0.22) !important;
+      box-shadow: 0 0 0 8px rgba(196, 120, 58, 0.1), inset 0 0 0 6px rgba(196, 48, 48, 0.06);
+    }
+    .bg-decor .hilo {
+      position: absolute;
+      height: 3px;
+      border-radius: 3px;
+      opacity: 0.22;
+      animation: ondular 10s ease-in-out infinite;
+    }
+    .bg-decor .hilo.h1 {
+      top: 22%; left: -5%; width: 28vw;
+      background: linear-gradient(90deg, transparent, #C43030, #D4A017, transparent);
+      animation-delay: 0s;
+    }
+    .bg-decor .hilo.h2 {
+      top: 48%; right: -5%; width: 32vw;
+      background: linear-gradient(90deg, transparent, #2F6B4F, #4A9B6E, transparent);
+      animation-delay: -3s;
+    }
+    .bg-decor .hilo.h3 {
+      top: 72%; left: -8%; width: 24vw;
+      background: linear-gradient(90deg, transparent, #C4783A, #E8A05C, transparent);
+      animation-delay: -6s;
+    }
+    .bg-decor .hilo.h4 {
+      top: 35%; right: -3%; width: 18vw;
+      background: linear-gradient(90deg, transparent, #5B2C6F, #C43030, transparent);
+      animation-delay: -2s;
+    }
+    @keyframes ondular {
+      0%, 100% { transform: translateY(0) rotate(-2deg); opacity: 0.18; }
+      50% { transform: translateY(-10px) rotate(2deg); opacity: 0.3; }
+    }
+    .bg-decor .montana.izq path:first-child { fill: #1E5C3A !important; }
+    .bg-decor .montana.der path:first-child { fill: #8B1E1E !important; opacity: 0.35; }
+    body {
+      background:
+        radial-gradient(ellipse 70% 45% at 5% 10%, rgba(196,48,48,0.08), transparent 50%),
+        radial-gradient(ellipse 60% 40% at 95% 20%, rgba(47,107,79,0.12), transparent 50%),
+        radial-gradient(ellipse 50% 35% at 50% 90%, rgba(212,160,23,0.1), transparent 50%),
+        linear-gradient(165deg, #FFF9F0 0%, #F5EDE0 30%, #EAF3EA 60%, #FBF3E8 100%) !important;
+    }
+    /* Natsu más grande */
+    #mascotaLlama { width: 110px !important; }
+    #mascotaLlama .llama-svg { width: 110px !important; height: 125px !important; }
+    @media (max-width: 480px) {
+      #mascotaLlama { width: 90px !important; }
+      #mascotaLlama .llama-svg { width: 90px !important; height: 102px !important; }
+    }
+    /* Por qué grid más visual */
+    .porque-visual {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+      margin: 1.5rem 0 2rem;
+    }
+    @media (min-width: 700px) {
+      .porque-visual { grid-template-columns: 1.1fr 1fr; align-items: stretch; }
+    }
+    .porque-visual .porque-foto {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(92,61,46,0.12);
+      min-height: 220px;
+      background: #eee;
+    }
+    .porque-visual .porque-foto img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      min-height: 220px;
+    }
+    .porque-mini-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.65rem;
+    }
+    .porque-mini-grid a {
+      display: block;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 1;
+      box-shadow: 0 6px 16px rgba(92,61,46,0.1);
+      transition: transform 0.2s;
+    }
+    .porque-mini-grid a:hover { transform: scale(1.03); }
+    .porque-mini-grid img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .porque-mini-grid span {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      padding: 0.35rem 0.5rem;
+      background: linear-gradient(transparent, rgba(44,36,22,0.75));
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    .portada-nombre-box span {
+      display: block !important;
+      margin: 0.2rem 0;
+    }
+
   </style>
   
 </head>
 <body>
 
   <div class="bg-decor" aria-hidden="true">
+    <div class="hilo h1"></div>
+    <div class="hilo h2"></div>
+    <div class="hilo h3"></div>
+    <div class="hilo h4"></div>
+    <div class="hilo h5"></div>
+
     <svg class="montana izq" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 120 L40 50 L70 80 L110 30 L150 70 L200 20 L200 120 Z" fill="#2F6B4F"/>
       <path d="M0 120 L50 60 L90 90 L130 45 L200 75 L200 120 Z" fill="#5C3D2E" opacity="0.7"/>
@@ -2554,12 +2798,35 @@
             <li>Facultad de Ingeniería Económica (FIE) — UNA Puno (referencia histórica 1964–2024 en el emblema facultativo).</li>
             <li>Este sitio y la marca de ejemplo NATSUYARI se presentan como <strong>proyecto académico</strong> aún en desarrollo.</li>
           </ul>
-          <h3><i class="fa-solid fa-user" aria-hidden="true"></i> Sobre el trabajo</h3>
+          <h3><i class="fa-solid fa-user" aria-hidden="true"></i> Autoría (según el diario de la empresa)</h3>
+          <ul style="padding-left:1.2rem;margin:0 0 1.25rem">
+            <li><strong>Estudiante:</strong> Nicol Stefany Vilca Arias</li>
+            <li><strong>Firma en el documento:</strong> Nicol S. Vilca Arias</li>
+            <li><strong>Rol en el relato empresarial:</strong> Gerente General, Natsukii Yuyariy S.A.C.</li>
+            <li><strong>Correo del proyecto:</strong> estefani.vilca1234@gmail.com</li>
+          </ul>
+          <h3><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i> Docente / asesor</h3>
+          <ul style="padding-left:1.2rem;margin:0 0 1.25rem">
+            <li>En el <em>Diario de la Empresa</em> y el Canvas revisados <strong>no figura el nombre del docente o asesor</strong>.</li>
+            <li>Si me indicas el nombre exacto, lo agregamos aquí de inmediato.</li>
+          </ul>
+          <h3><i class="fa-solid fa-book" aria-hidden="true"></i> Sobre el trabajo</h3>
           <ul style="padding-left:1.2rem;margin:0">
             <li>Empresa modelo: <strong>Natsukii Yuyariy S.A.C.</strong> / marca <strong>NATSUYARI</strong></li>
             <li>RUC de referencia del proyecto: 20608505917</li>
-            <li>Correo de contacto del proyecto: estefani.vilca1234@gmail.com</li>
-            <li>Contenido basado en el diario de empresa y el modelo Canvas del curso.</li>
+            <li>Documento base: «NATSUYARI, Años 0 a 10 — Diario de la Empresa: Del Telar al Mundo» (Puno, octubre de 2026)</li>
+            <li>Contenido del sitio alineado al diario y al modelo Canvas del curso.</li>
+          </ul>
+          <h3><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i> Asesor / docente</h3>
+          <ul style="padding-left:1.2rem;margin:0 0 1.25rem">
+            <li>El documento fuente indica a la estudiante <strong>Nicol Stefany Vilca Arias</strong>; no consigna el nombre del asesor o docente en el texto disponible.</li>
+          </ul>
+          <h3><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Sobre el trabajo</h3>
+          <ul style="padding-left:1.2rem;margin:0">
+            <li>Empresa modelo: <strong>Natsukii Yuyariy S.A.C.</strong> / marca <strong>NATSUYARI</strong></li>
+            <li>Diario de la empresa: «Del Telar al Mundo» (Años 0 a 10)</li>
+            <li>Correo del proyecto: estefani.vilca1234@gmail.com</li>
+            <li>Proyecto académico en desarrollo (octubre 2026)</li>
           </ul>
         </div>
         <p class="ods-nota" style="margin-top:1.75rem">
