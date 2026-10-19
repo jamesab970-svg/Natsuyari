@@ -1601,11 +1601,360 @@
       font-weight: 600;
     }
 
+  
+    /* Paleta más viva */
+    :root {
+      --beige: #E8D5B5;
+      --marron: #5C3D2E;
+      --verde: #2F6B4F;
+      --verde-claro: #4A9B6E;
+      --hueso: #FBF7F0;
+      --blanco: #FFFFFF;
+      --texto: #2C2416;
+      --texto-suave: #5A4E3C;
+      --borde: #E5D9C5;
+      --acento: #C4783A;
+      --acento-suave: #E8A05C;
+      --dorado: #D4A017;
+    }
+    body {
+      background: var(--hueso);
+    }
+    .header {
+      background: rgba(251, 247, 240, 0.97);
+      border-bottom: 2px solid var(--beige);
+    }
+    .nav-desktop > a:hover,
+    .nav-dropdown-trigger:hover,
+    .nav-desktop > a.activo {
+      color: var(--verde);
+      background: rgba(47, 107, 79, 0.12);
+    }
+    .nav-desktop > a.activo {
+      box-shadow: inset 0 -2px 0 var(--acento);
+    }
+    .btn-primario {
+      background: linear-gradient(135deg, var(--verde) 0%, var(--verde-claro) 100%);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(47, 107, 79, 0.25);
+    }
+    .btn-primario:hover {
+      background: linear-gradient(135deg, #245a42 0%, var(--verde) 100%);
+      color: #fff;
+    }
+    .btn-whatsapp {
+      background: #25D366;
+      color: #fff;
+    }
+    .btn-whatsapp:hover { background: #1da851; color: #fff; }
+    .seccion-titulo {
+      color: var(--marron);
+    }
+    .seccion-titulo::after {
+      content: "";
+      display: block;
+      width: 64px;
+      height: 4px;
+      margin: 0.6rem auto 0;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--verde), var(--acento), var(--dorado));
+    }
+    .seccion-titulo[style*="text-align:center"]::after,
+    .seccion-titulo { }
+    h2.seccion-titulo { text-align: center; }
+    h2.seccion-titulo::after { margin-left: auto; margin-right: auto; }
+    .impacto-card {
+      background: linear-gradient(160deg, #fff 0%, #F5EFE3 100%);
+      border: 1px solid var(--borde);
+    }
+    .impacto-icono {
+      background: linear-gradient(135deg, rgba(47,107,79,0.15), rgba(196,120,58,0.15));
+      color: var(--verde);
+    }
+    .impacto-num { color: var(--acento); }
+    .tarjeta-producto {
+      border: 1px solid var(--borde);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .tarjeta-producto:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(92, 61, 46, 0.12);
+    }
+    .filtro-btn.activo {
+      background: var(--verde);
+      color: #fff;
+    }
+    .chip {
+      background: linear-gradient(135deg, rgba(47,107,79,0.12), rgba(196,120,58,0.12));
+      color: var(--marron);
+    }
+    .subnav {
+      background: linear-gradient(90deg, #fff, #F8F1E5, #fff);
+      border-bottom: 2px solid var(--beige);
+    }
+    .subnav a.activo {
+      color: var(--marron);
+      border-bottom-color: var(--acento);
+      background: rgba(196,120,58,0.08);
+    }
+    .footer {
+      background: linear-gradient(135deg, var(--marron) 0%, #3d291f 50%, #2F6B4F 100%);
+    }
+    .atajo-card {
+      border: 1px solid var(--borde);
+      background: linear-gradient(160deg, #fff, #F8F1E5);
+    }
+    .atajo-card:hover {
+      border-color: var(--verde-claro);
+    }
+    .portada {
+      min-height: min(56vh, 460px);
+    }
+
+  
+    /* ===== FONDO E INTERACTIVIDAD ===== */
+    body {
+      background:
+        radial-gradient(ellipse 80% 50% at 10% -10%, rgba(47, 107, 79, 0.14), transparent 55%),
+        radial-gradient(ellipse 70% 45% at 95% 5%, rgba(196, 120, 58, 0.12), transparent 50%),
+        radial-gradient(ellipse 60% 40% at 50% 100%, rgba(212, 160, 23, 0.08), transparent 55%),
+        linear-gradient(180deg, #FBF7F0 0%, #F5EDE0 40%, #F0E6D4 100%);
+      background-attachment: fixed;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.035;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 28px, #5C3D2E 28px, #5C3D2E 29px),
+        repeating-linear-gradient(90deg, transparent, transparent 28px, #5C3D2E 28px, #5C3D2E 29px);
+    }
+    .header, .subnav, main, .footer, .nav-movil, .page-main {
+      position: relative;
+      z-index: 1;
+    }
+    .header {
+      background: rgba(251, 247, 240, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid transparent;
+      border-image: linear-gradient(90deg, var(--verde), var(--acento), var(--dorado), var(--verde)) 1;
+      box-shadow: 0 4px 20px rgba(92, 61, 46, 0.06);
+    }
+    .nav-desktop > a,
+    .nav-dropdown-trigger {
+      transition: color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .nav-desktop > a:hover,
+    .nav-dropdown-trigger:hover {
+      transform: translateY(-1px);
+      background: rgba(47, 107, 79, 0.14);
+      color: var(--verde);
+    }
+    .nav-desktop > a.activo {
+      background: linear-gradient(135deg, rgba(47,107,79,0.16), rgba(196,120,58,0.12));
+      color: var(--marron);
+      box-shadow: inset 0 -3px 0 var(--acento);
+    }
+    .nav-dropdown {
+      border: 1px solid var(--borde);
+      box-shadow: 0 16px 40px rgba(92, 61, 46, 0.14);
+      overflow: hidden;
+    }
+    .nav-dropdown a {
+      transition: background 0.18s, padding-left 0.18s, color 0.18s;
+    }
+    .nav-dropdown a:hover {
+      padding-left: 1.35rem;
+      background: linear-gradient(90deg, rgba(47,107,79,0.12), transparent);
+    }
+    .btn, .btn-primario, .btn-whatsapp, .btn-agregar, .filtro-btn {
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s, filter 0.2s;
+    }
+    .btn:hover, .btn-primario:hover, .btn-whatsapp:hover, .btn-agregar:hover {
+      transform: translateY(-2px) scale(1.02);
+      filter: brightness(1.05);
+    }
+    .btn:active, .btn-primario:active, .btn-whatsapp:active {
+      transform: translateY(0) scale(0.98);
+    }
+    .btn-primario {
+      background: linear-gradient(135deg, #2F6B4F 0%, #4A9B6E 50%, #3A8B5C 100%);
+      box-shadow: 0 6px 18px rgba(47, 107, 79, 0.3);
+    }
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #25D366, #1ebe57);
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.28);
+    }
+    .filtro-btn {
+      border: 1px solid var(--borde);
+      background: #fff;
+    }
+    .filtro-btn:hover {
+      border-color: var(--verde);
+      color: var(--verde);
+      transform: translateY(-1px);
+    }
+    .filtro-btn.activo {
+      background: linear-gradient(135deg, var(--verde), var(--verde-claro));
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 4px 12px rgba(47, 107, 79, 0.25);
+    }
+    .tarjeta-producto, .impacto-card, .card-info, .atajo-card, .proceso-paso, .timeline-card, .card {
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s;
+    }
+    .tarjeta-producto:hover, .impacto-card:hover, .atajo-card:hover, .proceso-paso:hover, .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(92, 61, 46, 0.14);
+      border-color: rgba(47, 107, 79, 0.25);
+    }
+    .tarjeta-img {
+      overflow: hidden;
+      border-radius: var(--radio) var(--radio) 0 0;
+    }
+    .tarjeta-img img {
+      transition: transform 0.45s ease;
+    }
+    .tarjeta-producto:hover .tarjeta-img img {
+      transform: scale(1.08);
+    }
+    .impacto-card {
+      background: linear-gradient(165deg, #ffffff 0%, #F8F1E5 55%, #F0E8D6 100%);
+      border: 1px solid var(--borde);
+    }
+    .impacto-icono {
+      transition: transform 0.3s, background 0.3s;
+    }
+    .impacto-card:hover .impacto-icono {
+      transform: scale(1.12) rotate(-4deg);
+      background: linear-gradient(135deg, rgba(47,107,79,0.22), rgba(196,120,58,0.22));
+    }
+    .impacto-num {
+      background: linear-gradient(135deg, var(--acento), var(--dorado));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+    .seccion-titulo::after {
+      width: 72px;
+      height: 5px;
+      background: linear-gradient(90deg, var(--verde), var(--acento), var(--dorado), var(--verde-claro));
+      background-size: 200% 100%;
+      animation: brillo-linea 4s linear infinite;
+    }
+    @keyframes brillo-linea {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+    .portada {
+      min-height: min(58vh, 480px);
+      box-shadow: inset 0 -40px 60px rgba(44, 36, 22, 0.15);
+    }
+    .portada-img {
+      transition: transform 12s ease;
+    }
+    .portada:hover .portada-img {
+      transform: scale(1.04);
+    }
+    .portada-overlay {
+      background: linear-gradient(
+        180deg,
+        rgba(44, 36, 22, 0.2) 0%,
+        rgba(47, 107, 79, 0.25) 40%,
+        rgba(44, 36, 22, 0.78) 100%
+      );
+    }
+    .portada-contenido .btn {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+    .chip {
+      transition: transform 0.2s, background 0.2s;
+      cursor: default;
+    }
+    .chip:hover {
+      transform: scale(1.06);
+      background: linear-gradient(135deg, rgba(47,107,79,0.2), rgba(196,120,58,0.2));
+    }
+    .swatch {
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+    .swatch:hover {
+      transform: scale(1.15);
+    }
+    .swatch.activo {
+      box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--verde);
+      transform: scale(1.12);
+    }
+    .subnav a {
+      transition: color 0.2s, background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .subnav a:hover {
+      transform: translateY(-1px);
+      color: var(--verde);
+    }
+    .subnav a.activo {
+      background: linear-gradient(180deg, rgba(196,120,58,0.1), rgba(196,120,58,0.18));
+      border-bottom-color: var(--acento);
+    }
+    .footer {
+      background: linear-gradient(135deg, #5C3D2E 0%, #3d291f 40%, #2F6B4F 100%);
+      background-size: 150% 150%;
+    }
+    .footer a {
+      transition: color 0.2s, opacity 0.2s;
+    }
+    .footer a:hover {
+      color: #fff;
+      opacity: 1;
+    }
+    .btn-carrito {
+      transition: transform 0.2s, background 0.2s;
+      background: linear-gradient(135deg, rgba(47,107,79,0.12), rgba(196,120,58,0.12));
+    }
+    .btn-carrito:hover {
+      transform: scale(1.08);
+      background: linear-gradient(135deg, rgba(47,107,79,0.2), rgba(196,120,58,0.2));
+    }
+    .badge-carrito {
+      background: var(--acento) !important;
+    }
+    .proceso-paso {
+      background: linear-gradient(165deg, #fff, #F8F1E5);
+    }
+    .proceso-num {
+      background: linear-gradient(135deg, var(--verde), var(--verde-claro));
+      box-shadow: 0 4px 10px rgba(47,107,79,0.3);
+    }
+    .timeline-marker {
+      background: linear-gradient(135deg, var(--verde), var(--acento));
+      box-shadow: 0 0 0 3px #fff, 0 0 0 5px rgba(47,107,79,0.35);
+    }
+    .timeline-card:hover {
+      border-color: var(--verde-claro);
+    }
+    .timeline-anio {
+      background: linear-gradient(135deg, rgba(47,107,79,0.15), rgba(196,120,58,0.15));
+      color: var(--marron);
+    }
+    /* Zoom cursor en productos */
+    .tarjeta-img { cursor: zoom-in; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .portada:hover .portada-img { transform: none; }
+    }
+
   </style>
   
 </head>
 <body>
-  <a class="skip-link" href="#contenido-principal">Saltar al contenido</a>
   <header class="header">
     <div class="contenedor header-inner">
       <a href="index.html" class="logo-link">
@@ -1613,7 +1962,7 @@
         <span>NATSUYARI</span>
       </a>
       
-      <nav class="nav-desktop" aria-label="Navegación principal">
+            <nav class="nav-desktop" aria-label="Navegación principal">
         <a href="index.html">Inicio</a>
         <a href="productos.html">Productos</a>
         <div class="nav-item-dropdown">
@@ -1644,7 +1993,7 @@
     </div>
   </header>
   
-  <nav class="nav-movil" id="navMovil" aria-label="Menú móvil" hidden>
+    <nav class="nav-movil" id="navMovil" aria-label="Menú móvil" hidden>
     <a href="index.html">Inicio</a>
     <a href="productos.html">Productos</a>
     <a href="nosotros.html">Nosotros</a>
