@@ -3274,6 +3274,96 @@
       transform: translateY(-2px) scale(1.03);
     }
 
+  
+    /* Fondo unificado tipo Nosotros en todas las páginas */
+    body {
+      background:
+        radial-gradient(ellipse 80% 50% at 0% 0%, rgba(196,48,48,0.12), transparent 55%),
+        radial-gradient(ellipse 70% 45% at 100% 5%, rgba(47,107,79,0.16), transparent 50%),
+        radial-gradient(ellipse 60% 40% at 50% 100%, rgba(212,160,23,0.14), transparent 55%),
+        radial-gradient(ellipse 40% 30% at 80% 60%, rgba(91,44,111,0.08), transparent 50%),
+        linear-gradient(165deg, #FFF8EE 0%, #F3E8D4 25%, #E5F0E5 55%, #F8EFE0 100%) !important;
+      background-attachment: fixed !important;
+    }
+    .bg-decor {
+      position: fixed !important;
+      inset: 0 !important;
+      z-index: 0 !important;
+      pointer-events: none !important;
+      overflow: hidden !important;
+    }
+    .header, .subnav, main, .page-main, .footer, .nav-movil {
+      position: relative;
+      z-index: 1;
+    }
+    /* Secciones translúcidas para que se vean las hebras */
+    .productos,
+    .nosotros,
+    .calidad,
+    .impacto,
+    .cuidados,
+    .page-main,
+    main.page-main,
+    .hero {
+      background: transparent !important;
+    }
+    .tarjeta-producto,
+    .card-info,
+    .impacto-card,
+    .transporte-card,
+    .creador-ficha,
+    .proceso-paso,
+    .timeline-item,
+    .form-card {
+      background: rgba(255, 255, 255, 0.88) !important;
+      backdrop-filter: blur(6px);
+    }
+    .portada {
+      position: relative;
+      z-index: 1;
+    }
+
+  
+    /* Carrusel manual de atajos Natsu */
+    #natsuPanel .natsu-atajos-wrap {
+      position: relative;
+      margin: 0.15rem 0 0.35rem;
+    }
+    #natsuPanel .natsu-atajos {
+      display: flex !important;
+      flex-wrap: nowrap !important;
+      gap: 0.4rem !important;
+      overflow-x: auto !important;
+      overflow-y: hidden !important;
+      scroll-behavior: smooth;
+      scroll-snap-type: x proximity;
+      padding: 0.35rem 0.15rem 0.5rem;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: #9B6BB8 transparent;
+      cursor: grab;
+    }
+    #natsuPanel .natsu-atajos:active { cursor: grabbing; }
+    #natsuPanel .natsu-atajos::-webkit-scrollbar {
+      height: 5px;
+    }
+    #natsuPanel .natsu-atajos::-webkit-scrollbar-thumb {
+      background: #9B6BB8;
+      border-radius: 999px;
+    }
+    #natsuPanel .natsu-atajos button {
+      flex: 0 0 auto !important;
+      scroll-snap-align: start;
+      white-space: nowrap;
+    }
+    #natsuPanel .natsu-atajos-hint {
+      font-size: 0.68rem;
+      color: #8a7a9a;
+      text-align: center;
+      margin-top: -0.15rem;
+      margin-bottom: 0.2rem;
+    }
+
   </style>
   
 </head>
@@ -3635,16 +3725,20 @@ document.getElementById("btnMenu")?.addEventListener("click", function () {
     </div>
     <div class="natsu-body">
       <div id="natsuChatLog" aria-live="polite"></div>
-      <div class="natsu-atajos" id="natsuAtajos">
-        <button type="button" data-chat="hola">Saludar</button>
-        <button type="button" data-chat="precios">Precios</button>
-        <button type="button" data-chat="música chill">Música chill</button>
-        <button type="button" data-chat="música andina">Música andina</button>
-        <button type="button" data-chat="productos">Productos</button>
-        <button type="button" data-chat="silencio">Silencio</button>
-        <button type="button" data-go="productos.html">Ir al catálogo</button>
-        <button type="button" data-go="contacto.html">Contacto</button>
-        <button type="button" data-go="https://wa.me/51950179363?text=Hola%20NATSUYARI">WhatsApp</button>
+      <div class="natsu-atajos-wrap">
+        <div class="natsu-atajos" id="natsuAtajos">
+          <button type="button" data-chat="hola">Saludar</button>
+          <button type="button" data-chat="precios">Precios</button>
+          <button type="button" data-chat="productos">Productos</button>
+          <button type="button" data-go="productos.html">Ir al catálogo</button>
+          <button type="button" data-go="contacto.html">Contacto</button>
+          <button type="button" data-go="calidad.html">Calidad</button>
+          <button type="button" data-go="historia.html">Historia</button>
+          <button type="button" data-go="impacto.html">Impacto</button>
+          <button type="button" data-go="nosotros.html">Nosotros</button>
+          <button type="button" data-go="https://wa.me/51950179363?text=Hola%20NATSUYARI">WhatsApp</button>
+        </div>
+        <p class="natsu-atajos-hint">Desliza los atajos →</p>
       </div>
       <div class="natsu-input-row">
         <label for="natsuInput" class="sr-only">Escribe a Natsu</label>
@@ -4027,7 +4121,7 @@ var NATSU_IMGS = {
     ultimaInteraccionNatsu = Date.now();
     ultimaEscritura = Date.now();
     if (log && log.children.length === 0) {
-      addMsg("¡Hola! Soy Natsu, la alpaca de NATSUYARI. Pregúntame por precios, productos o música.", "natsu");
+      addMsg("¡Hola! Soy Natsu, la alpaca de NATSUYARI. Pregúntame por precios, productos o lo que se te ocurra.", "natsu");
     }
     if (mensajeInicial) addMsg(mensajeInicial, "natsu");
     setTimeout(function(){ if (input) input.focus(); }, 200);
@@ -4239,6 +4333,32 @@ var NATSU_IMGS = {
   // Cualquier interacción con Natsu resetea proactivo timer al abrir
   document.addEventListener("visibilitychange", function(){
     if (!document.hidden) ultimaInteraccionNatsu = Date.now();
+  });
+})();
+</script>
+
+
+<script>
+(function(){
+  var strip = document.getElementById("natsuAtajos");
+  if (!strip || strip.dataset.dragReady) return;
+  strip.dataset.dragReady = "1";
+  var down = false, startX = 0, scrollL = 0;
+  strip.addEventListener("mousedown", function(e){
+    down = true;
+    startX = e.pageX;
+    scrollL = strip.scrollLeft;
+    strip.style.cursor = "grabbing";
+  });
+  window.addEventListener("mouseup", function(){
+    down = false;
+    strip.style.cursor = "grab";
+  });
+  window.addEventListener("mousemove", function(e){
+    if (!down) return;
+    e.preventDefault();
+    var dx = e.pageX - startX;
+    strip.scrollLeft = scrollL - dx;
   });
 })();
 </script>
