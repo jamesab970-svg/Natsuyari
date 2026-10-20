@@ -2056,7 +2056,7 @@
       transform: translateY(40px) scale(0.6);
       pointer-events: none;
     }
-    #mascotaLlama .llama-svg { width: 88px; height: 100px; display: block; }
+    
     #mascotaLlama .globo {
       position: absolute;
       bottom: 100%;
@@ -2083,8 +2083,8 @@
       opacity: 1;
       transform: translateY(0);
     }
-    #mascotaLlama.feliz .llama-cuerpo { animation: llama-salta 0.6s ease; }
-    #mascotaLlama.triste .llama-cuerpo { animation: llama-triste 0.5s ease; }
+    
+    
     @keyframes llama-salta {
       0%, 100% { transform: translateY(0); }
       40% { transform: translateY(-14px) scale(1.05); }
@@ -2097,7 +2097,7 @@
     }
     @media (max-width: 480px) {
       #mascotaLlama { width: 110px; bottom: 12px; right: 12px; }
-      #mascotaLlama .llama-svg { width: 72px; height: 82px; }
+      
     }
 
   
@@ -2549,10 +2549,10 @@
     }
     /* Natsu más grande */
     #mascotaLlama { width: 110px !important; }
-    #mascotaLlama .llama-svg { width: 110px !important; height: 125px !important; }
+    
     @media (max-width: 480px) {
       #mascotaLlama { width: 110px !important; }
-      #mascotaLlama .llama-svg { width: 90px !important; height: 102px !important; }
+      
     }
     /* Por qué más llamativo */
     .porque-grid {
@@ -2695,10 +2695,10 @@
     }
     /* Natsu más grande */
     #mascotaLlama { width: 110px !important; }
-    #mascotaLlama .llama-svg { width: 110px !important; height: 125px !important; }
+    
     @media (max-width: 480px) {
       #mascotaLlama { width: 90px !important; }
-      #mascotaLlama .llama-svg { width: 90px !important; height: 102px !important; }
+      
     }
     /* Por qué grid más visual */
     .porque-visual {
@@ -2878,19 +2878,14 @@
     #natsuEscupe .saliva.s2 { width: 220px; height: 170px; top: 40%; left: 48%; transform: rotate(12deg); }
     #natsuEscupe .saliva.s3 { width: 140px; height: 120px; top: 55%; left: 30%; transform: rotate(8deg); }
     #natsuEscupe .saliva.s4 { width: 100px; height: 90px; top: 22%; left: 60%; transform: rotate(-5deg); }
-    #mascotaLlama.escupiendo .llama-cuerpo {
-      animation: llama-escupe 0.6s ease;
-    }
+    
     @keyframes llama-escupe {
       0% { transform: scale(1) rotate(0); }
       30% { transform: scale(1.08) rotate(-8deg); }
       55% { transform: scale(1.12) rotate(6deg); }
       100% { transform: scale(1) rotate(0); }
     }
-    #mascotaLlama .llama-svg {
-      width: 118px !important;
-      height: 140px !important;
-    }
+    
     #mascotaLlama { width: 118px !important; }
 
   
@@ -2932,6 +2927,8 @@
       transform: translateY(0);
     }
     #mascotaLlama .natsu-sprite {
+      max-width: 120px;
+      max-height: 140px;
       width: 120px;
       height: auto;
       display: block;
@@ -2977,12 +2974,329 @@
       visibility: hidden !important;
     }
 
+  
+    /* Hebras de lana sueltas en el fondo */
+    .bg-decor .hebra {
+      position: absolute;
+      height: 3px;
+      border-radius: 999px;
+      opacity: 0.28;
+      pointer-events: none;
+      transform-origin: center;
+      filter: blur(0.3px);
+    }
+    .bg-decor .hebra.h-a {
+      top: 8%; left: -5%; width: 38vw;
+      background: linear-gradient(90deg, transparent, #C43030, #E85A4F, transparent);
+      animation: hebra-onda 11s ease-in-out infinite;
+    }
+    .bg-decor .hebra.h-b {
+      top: 18%; right: -8%; width: 32vw;
+      background: linear-gradient(90deg, transparent, #2F6B4F, #5BBF7A, transparent);
+      animation: hebra-onda 14s ease-in-out infinite reverse;
+      animation-delay: -2s;
+      height: 2.5px;
+      transform: rotate(-8deg);
+    }
+    .bg-decor .hebra.h-c {
+      top: 32%; left: 5%; width: 26vw;
+      background: linear-gradient(90deg, transparent, #D4A017, #F0C14B, transparent);
+      animation: hebra-onda 12s ease-in-out infinite;
+      animation-delay: -4s;
+      height: 4px;
+      transform: rotate(4deg);
+    }
+    .bg-decor .hebra.h-d {
+      top: 45%; right: 2%; width: 30vw;
+      background: linear-gradient(90deg, transparent, #5B2C6F, #9B59B6, transparent);
+      animation: hebra-onda 15s ease-in-out infinite reverse;
+      animation-delay: -1s;
+      transform: rotate(-3deg);
+    }
+    .bg-decor .hebra.h-e {
+      top: 58%; left: -3%; width: 34vw;
+      background: linear-gradient(90deg, transparent, #C4783A, #E8A05C, transparent);
+      animation: hebra-onda 13s ease-in-out infinite;
+      animation-delay: -6s;
+      height: 2px;
+      transform: rotate(6deg);
+    }
+    .bg-decor .hebra.h-f {
+      top: 70%; right: -4%; width: 28vw;
+      background: linear-gradient(90deg, transparent, #1E5C3A, #4A9B6E, transparent);
+      animation: hebra-onda 16s ease-in-out infinite reverse;
+      animation-delay: -3s;
+      transform: rotate(-5deg);
+    }
+    .bg-decor .hebra.h-g {
+      top: 82%; left: 10%; width: 22vw;
+      background: linear-gradient(90deg, transparent, #8B1E1E, #C43030, transparent);
+      animation: hebra-onda 10s ease-in-out infinite;
+      animation-delay: -5s;
+      height: 3.5px;
+      transform: rotate(2deg);
+    }
+    .bg-decor .hebra.h-h {
+      top: 25%; left: 40%; width: 18vw;
+      background: linear-gradient(90deg, transparent, #2E86AB, #5DADE2, transparent);
+      animation: hebra-onda 17s ease-in-out infinite;
+      animation-delay: -7s;
+      height: 2px;
+      transform: rotate(-12deg);
+    }
+    /* Hebras curvas (SVG paths like) via border tricks */
+    .bg-decor .hebra-curva {
+      position: absolute;
+      width: 120px;
+      height: 80px;
+      border: 3px solid transparent;
+      border-top-color: rgba(196, 120, 58, 0.35);
+      border-radius: 50%;
+      opacity: 0.4;
+      animation: hebra-giro 20s linear infinite;
+      pointer-events: none;
+    }
+    .bg-decor .hebra-curva.c1 {
+      top: 12%; left: 15%;
+      border-top-color: rgba(196, 48, 48, 0.35);
+      width: 140px; height: 90px;
+    }
+    .bg-decor .hebra-curva.c2 {
+      top: 50%; right: 12%;
+      border-top-color: rgba(47, 107, 79, 0.4);
+      border-right-color: rgba(47, 107, 79, 0.2);
+      animation-direction: reverse;
+      animation-duration: 25s;
+    }
+    .bg-decor .hebra-curva.c3 {
+      bottom: 15%; left: 25%;
+      border-top-color: rgba(212, 160, 23, 0.4);
+      width: 100px; height: 70px;
+      animation-duration: 18s;
+    }
+    .bg-decor .hebra-curva.c4 {
+      top: 38%; left: 55%;
+      border-top-color: rgba(91, 44, 111, 0.3);
+      width: 90px; height: 60px;
+      animation-duration: 22s;
+      animation-direction: reverse;
+    }
+    /* Madejas / ovillos */
+    .bg-decor .ovillo {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      opacity: 0.2;
+      border: 3px solid;
+      animation: ovillo-flotar 14s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .bg-decor .ovillo.o1 {
+      top: 15%; right: 8%;
+      border-color: #C43030;
+      box-shadow: inset 0 0 0 6px rgba(196,48,48,0.15), 0 0 0 10px rgba(196,48,48,0.08);
+      animation-delay: 0s;
+    }
+    .bg-decor .ovillo.o2 {
+      bottom: 20%; left: 6%;
+      border-color: #2F6B4F;
+      width: 36px; height: 36px;
+      box-shadow: inset 0 0 0 5px rgba(47,107,79,0.15), 0 0 0 8px rgba(47,107,79,0.08);
+      animation-delay: -4s;
+    }
+    .bg-decor .ovillo.o3 {
+      top: 60%; right: 18%;
+      border-color: #D4A017;
+      width: 28px; height: 28px;
+      box-shadow: inset 0 0 0 4px rgba(212,160,23,0.15);
+      animation-delay: -7s;
+    }
+    @keyframes hebra-onda {
+      0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); opacity: 0.22; }
+      50% { transform: translateY(-14px) rotate(calc(var(--r, 0deg) + 2deg)); opacity: 0.38; }
+    }
+    .bg-decor .hebra.h-a { --r: 0deg; }
+    .bg-decor .hebra.h-b { --r: -8deg; }
+    .bg-decor .hebra.h-c { --r: 4deg; }
+    .bg-decor .hebra.h-d { --r: -3deg; }
+    .bg-decor .hebra.h-e { --r: 6deg; }
+    .bg-decor .hebra.h-f { --r: -5deg; }
+    .bg-decor .hebra.h-g { --r: 2deg; }
+    .bg-decor .hebra.h-h { --r: -12deg; }
+    @keyframes hebra-giro {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes ovillo-flotar {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-18px) scale(1.06); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .bg-decor .hebra,
+      .bg-decor .hebra-curva,
+      .bg-decor .ovillo { animation: none !important; }
+    }
+
+  
+    /* Chat Natsu mejorado */
+    #natsuPanel {
+      position: fixed;
+      bottom: 150px;
+      right: 18px;
+      width: min(340px, calc(100vw - 24px));
+      background: linear-gradient(180deg, #F8F0FF 0%, #fff 40%);
+      border: 2px solid #9B6BB8;
+      border-radius: 18px;
+      box-shadow: 0 18px 44px rgba(91, 44, 111, 0.22);
+      z-index: 9995;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      font-size: 0.88rem;
+    }
+    #natsuPanel.abierto { display: flex; }
+    #natsuPanel .natsu-head {
+      background: linear-gradient(135deg, #6B3FA0, #2F6B4F);
+      color: #fff;
+      padding: 0.8rem 1rem;
+      font-family: var(--fuente-titulo);
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    #natsuPanel .natsu-head button {
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: #fff;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      font-size: 1rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+    #natsuPanel .natsu-body {
+      padding: 0.75rem 0.9rem 0.9rem;
+      max-height: 380px;
+      overflow-y: auto;
+      background: linear-gradient(180deg, #FBF7FF, #fff);
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+    #natsuChatLog {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      min-height: 80px;
+      max-height: 200px;
+      overflow-y: auto;
+      padding-right: 0.25rem;
+    }
+    #natsuChatLog .msg {
+      padding: 0.5rem 0.7rem;
+      border-radius: 12px;
+      line-height: 1.4;
+      max-width: 92%;
+      animation: msg-in 0.25s ease;
+    }
+    #natsuChatLog .msg.natsu {
+      background: linear-gradient(135deg, rgba(107,63,160,0.12), rgba(47,107,79,0.1));
+      color: var(--texto);
+      border-bottom-left-radius: 4px;
+      align-self: flex-start;
+    }
+    #natsuChatLog .msg.user {
+      background: linear-gradient(135deg, #6B3FA0, #2F6B4F);
+      color: #fff;
+      border-bottom-right-radius: 4px;
+      align-self: flex-end;
+    }
+    @keyframes msg-in {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    #natsuPanel .natsu-atajos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    #natsuPanel .natsu-atajos button {
+      border: 1px solid rgba(107,63,160,0.25);
+      background: #fff;
+      color: #5C3D2E;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.32rem 0.55rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.15s;
+    }
+    #natsuPanel .natsu-atajos button:hover {
+      background: rgba(107,63,160,0.1);
+      transform: translateY(-1px);
+    }
+    #natsuPanel .natsu-input-row {
+      display: flex;
+      gap: 0.4rem;
+      margin-top: 0.25rem;
+    }
+    #natsuPanel .natsu-input-row input {
+      flex: 1;
+      border: 1.5px solid rgba(107,63,160,0.3);
+      border-radius: 999px;
+      padding: 0.5rem 0.8rem;
+      font-size: 0.85rem;
+      outline: none;
+      background: #fff;
+    }
+    #natsuPanel .natsu-input-row input:focus {
+      border-color: #6B3FA0;
+      box-shadow: 0 0 0 3px rgba(107,63,160,0.12);
+    }
+    #natsuPanel .natsu-input-row button {
+      border: none;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #6B3FA0, #2F6B4F);
+      color: #fff;
+      padding: 0.5rem 0.9rem;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    #mascotaLlama .globo.clickable {
+      cursor: pointer;
+      pointer-events: auto;
+      border: 2px solid #9B6BB8;
+      background: linear-gradient(135deg, #fff, #F3E8FF);
+    }
+    #mascotaLlama .globo.clickable:hover {
+      transform: translateY(-2px) scale(1.03);
+    }
+
   </style>
   
 </head>
 <body>
 
   <div class="bg-decor" aria-hidden="true">
+
+    <div class="hebra h-a"></div>
+    <div class="hebra h-b"></div>
+    <div class="hebra h-c"></div>
+    <div class="hebra h-d"></div>
+    <div class="hebra h-e"></div>
+    <div class="hebra h-f"></div>
+    <div class="hebra h-g"></div>
+    <div class="hebra h-h"></div>
+    <div class="hebra-curva c1"></div>
+    <div class="hebra-curva c2"></div>
+    <div class="hebra-curva c3"></div>
+    <div class="hebra-curva c4"></div>
+    <div class="ovillo o1"></div>
+    <div class="ovillo o2"></div>
+    <div class="ovillo o3"></div>
+
     <div class="hilo h1"></div>
     <div class="hilo h2"></div>
     <div class="hilo h3"></div>
@@ -3271,41 +3585,7 @@ document.getElementById("btnMenu")?.addEventListener("click", function () {
   });
 })();
 </script>
-<svg class="llama-svg" viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <g class="llama-cuerpo">
-        <!-- cuerpo -->
-        <ellipse cx="60" cy="95" rx="32" ry="28" fill="#E8D5B5"/>
-        <ellipse cx="60" cy="95" rx="26" ry="22" fill="#F5E6C8"/>
-        <!-- cuello -->
-        <rect x="52" y="48" width="16" height="42" rx="8" fill="#E8D5B5"/>
-        <!-- cabeza -->
-        <ellipse cx="60" cy="42" rx="18" ry="16" fill="#F0E0C0"/>
-        <!-- orejas -->
-        <ellipse cx="48" cy="28" rx="6" ry="12" fill="#E8D5B5" transform="rotate(-20 48 28)"/>
-        <ellipse cx="72" cy="28" rx="6" ry="12" fill="#E8D5B5" transform="rotate(20 72 28)"/>
-        <ellipse cx="48" cy="30" rx="3" ry="7" fill="#D4A574" transform="rotate(-20 48 30)"/>
-        <ellipse cx="72" cy="30" rx="3" ry="7" fill="#D4A574" transform="rotate(20 72 30)"/>
-        <!-- ojos -->
-        <circle class="ojo-izq" cx="54" cy="42" r="3.2" fill="#2C2416"/>
-        <circle class="ojo-der" cx="66" cy="42" r="3.2" fill="#2C2416"/>
-        <circle cx="55" cy="41" r="1" fill="#fff"/>
-        <circle cx="67" cy="41" r="1" fill="#fff"/>
-        <!-- hocico -->
-        <ellipse cx="60" cy="50" rx="7" ry="5" fill="#F8E8D0"/>
-        <circle cx="57" cy="49" r="1.2" fill="#5C3D2E"/>
-        <circle cx="63" cy="49" r="1.2" fill="#5C3D2E"/>
-        <!-- patas -->
-        <rect x="42" y="112" width="8" height="18" rx="3" fill="#D4C4A8"/>
-        <rect x="54" y="114" width="8" height="16" rx="3" fill="#D4C4A8"/>
-        <rect x="66" y="112" width="8" height="18" rx="3" fill="#D4C4A8"/>
-        <!-- bufanda NATSUYARI -->
-        <path d="M48 62 Q60 72 72 62" stroke="#2F6B4F" stroke-width="5" fill="none" stroke-linecap="round"/>
-        <path d="M70 64 Q78 78 74 88" stroke="#C4783A" stroke-width="4" fill="none" stroke-linecap="round"/>
-        <!-- pompon -->
-        <circle cx="74" cy="90" r="4" fill="#D4A017"/>
-      </g>
-    </svg>
-  </div>
+</div>
 
 
 
@@ -3350,27 +3630,26 @@ document.getElementById("btnMenu")?.addEventListener("click", function () {
 
   <div id="natsuPanel" aria-label="Chat con Natsu">
     <div class="natsu-head">
-      <span>Natsu · Asistente NATSUYARI</span>
+      <span>Natsu · Chat alpaca</span>
       <button type="button" id="natsuCerrar" aria-label="Cerrar">×</button>
     </div>
     <div class="natsu-body">
-      <div class="natsu-msg" id="natsuMsg">¡Hola! Soy Natsu. Puedo llevarte al catálogo, contacto, impacto u otras secciones. Elige un atajo o escribe qué buscas.</div>
+      <div id="natsuChatLog" aria-live="polite"></div>
       <div class="natsu-atajos" id="natsuAtajos">
-        <button type="button" data-go="productos.html">Productos</button>
+        <button type="button" data-chat="hola">Saludar</button>
+        <button type="button" data-chat="precios">Precios</button>
+        <button type="button" data-chat="música chill">Música chill</button>
+        <button type="button" data-chat="música andina">Música andina</button>
+        <button type="button" data-chat="productos">Productos</button>
+        <button type="button" data-chat="silencio">Silencio</button>
+        <button type="button" data-go="productos.html">Ir al catálogo</button>
         <button type="button" data-go="contacto.html">Contacto</button>
-        <button type="button" data-go="calidad.html">Calidad</button>
-        <button type="button" data-go="historia.html">Historia</button>
-        <button type="button" data-go="impacto.html">Impacto</button>
-        <button type="button" data-go="nosotros.html">Nosotros</button>
-        <button type="button" data-go="creador.html">Creador</button>
-        <button type="button" data-go="politica-uso.html">Política de uso</button>
-        <button type="button" data-go="politica-privacidad.html">Privacidad</button>
         <button type="button" data-go="https://wa.me/51950179363?text=Hola%20NATSUYARI">WhatsApp</button>
       </div>
       <div class="natsu-input-row">
         <label for="natsuInput" class="sr-only">Escribe a Natsu</label>
-        <input type="text" id="natsuInput" placeholder="Ej: chompas, envíos, privacidad..." autocomplete="off">
-        <button type="button" id="natsuEnviar">Ir</button>
+        <input type="text" id="natsuInput" placeholder="Escríbele a Natsu..." autocomplete="off">
+        <button type="button" id="natsuEnviar">Enviar</button>
       </div>
     </div>
   </div>
@@ -3662,6 +3941,305 @@ var NATSU_IMGS = {
       decir("¿Sigues ahí? Zzz…", 3500);
     }
   }, 4000);
+})();
+</script>
+
+
+<script>
+(function(){
+  /* ===== Natsu Chat + Música ===== */
+  if (window.__natsuChatReady) return;
+  window.__natsuChatReady = true;
+
+  var MUSICA = {
+    chill: ["audio/chill1.mp3", "audio/chill2.mp3", "audio/chill3.mp3"],
+    andino: ["audio/andino1.mp3", "audio/andino2.mp3", "audio/andino3.mp3"]
+  };
+  var audioActual = null;
+  var generoActual = null;
+  var chatAbierto = false;
+  var ultimaInteraccionNatsu = Date.now();
+  var ultimaEscritura = Date.now();
+  var proactivoMostrado = false;
+  var esperandoGenero = false;
+
+  var FALLBACKS = [
+    "Uy... creo que se me enredó la lana con tu pregunta. ¿Me lo repites? Solo sé de alpacas, lana y café.",
+    "Mi cerebrito de alpaca procesó eso a medias. ¿Me preguntas algo más fácil o prefieres que ponga música?",
+    "Me quedé en blanco... igual que mis primos albinos. ¡Pero seguro tenemos una chompa que te queda increíble!",
+    "¿Eso se come? Porque si no, no estoy segura de entenderte. ¡Prueba preguntarme por precios o por música!",
+    "Eso sonó a idioma extraterrestre. Aquí solo hablamos español, quechua y el idioma de la lana."
+  ];
+
+  function $(id){ return document.getElementById(id); }
+  var panel = $("natsuPanel");
+  var log = $("natsuChatLog");
+  var input = $("natsuInput");
+  var globo = $("llamaGlobo");
+  var el = $("mascotaLlama");
+
+  function random(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+
+  function decirGlobo(msg, ms, clickable){
+    if (!globo) return;
+    globo.textContent = msg;
+    globo.classList.add("visible");
+    if (clickable) globo.classList.add("clickable");
+    else globo.classList.remove("clickable");
+    clearTimeout(window.__natsuGloboTimer);
+    if (ms) {
+      window.__natsuGloboTimer = setTimeout(function(){
+        globo.classList.remove("visible");
+        globo.classList.remove("clickable");
+      }, ms);
+    }
+  }
+
+  function addMsg(texto, quien){
+    if (!log) return;
+    var d = document.createElement("div");
+    d.className = "msg " + (quien || "natsu");
+    d.textContent = texto;
+    log.appendChild(d);
+    log.scrollTop = log.scrollHeight;
+  }
+
+  function setPose(estado){
+    if (typeof NATSU_IMGS === "undefined" || !NATSU_IMGS[estado]) return;
+    var sprite = $("natsuSprite");
+    var box = $("mascotaLlama");
+    if (!sprite) return;
+    if (box) box.classList.add("cambiando");
+    setTimeout(function(){
+      sprite.src = NATSU_IMGS[estado];
+      if (box) {
+        box.classList.remove("cambiando");
+        if (estado === "base") box.classList.add("respirar");
+        else box.classList.remove("respirar");
+      }
+    }, 150);
+  }
+
+  function abrirChat(mensajeInicial){
+    if (!panel) return;
+    panel.classList.add("abierto");
+    chatAbierto = true;
+    ultimaInteraccionNatsu = Date.now();
+    ultimaEscritura = Date.now();
+    if (log && log.children.length === 0) {
+      addMsg("¡Hola! Soy Natsu, la alpaca de NATSUYARI. Pregúntame por precios, productos o música.", "natsu");
+    }
+    if (mensajeInicial) addMsg(mensajeInicial, "natsu");
+    setTimeout(function(){ if (input) input.focus(); }, 200);
+  }
+
+  function cerrarChat(){
+    if (panel) panel.classList.remove("abierto");
+    chatAbierto = false;
+  }
+
+  function detenerMusica(){
+    if (audioActual) {
+      try { audioActual.pause(); audioActual.currentTime = 0; } catch(e){}
+      audioActual = null;
+    }
+    generoActual = null;
+  }
+
+  function reproducirMusica(genero){
+    var lista = MUSICA[genero] || MUSICA.chill;
+    var src = random(lista);
+    detenerMusica();
+    generoActual = genero;
+    audioActual = new Audio(src);
+    audioActual.volume = 0.45;
+    audioActual.loop = true;
+    var p = audioActual.play();
+    if (p && p.catch) {
+      p.catch(function(){
+        addMsg("El navegador bloqueó el audio o falta el archivo " + src + ". Sube los MP3 a la carpeta audio/ y vuelve a intentar (a veces hace falta un clic previo).", "natsu");
+      });
+    }
+    return src;
+  }
+
+  function responderChat(texto){
+    var q = (texto || "").toLowerCase().trim();
+    if (!q) return;
+    ultimaInteraccionNatsu = Date.now();
+    ultimaEscritura = Date.now();
+    addMsg(texto, "user");
+
+    // Silencio / parar música
+    if (q.includes("silencio") || q.includes("para la música") || q.includes("para la musica") || q.includes("stop") || q.includes("pausa") || (q.includes("para") && q.includes("música")) || (q.includes("para") && q.includes("musica"))) {
+      detenerMusica();
+      addMsg("Listo, silencio de altiplano. Cuando quieras música otra vez, dímelo.", "natsu");
+      setPose("base");
+      return;
+    }
+
+    // Saludos
+    if (q.includes("hola") || q.includes("buenas") || q.includes("hey") || q.includes("buenos") || q.includes("saludar")) {
+      addMsg("¡Hola humano! Bienvenido a Natsuyari. ¿Vienes a abrigarte con nuestra lana o solo a saludar a esta humilde alpaca?", "natsu");
+      setPose("base");
+      return;
+    }
+
+    // Precios
+    if (q.includes("precio") || q.includes("cuánto") || q.includes("cuanto") || q.includes("costo") || q.includes("soles") || q.includes("barato") || q.includes("caro")) {
+      addMsg("Nuestras prendas son 100% alpaca y van desde S/30 (gorritos) hasta S/180 (chompas). ¡Una inversión en abrigo de verdad!", "natsu");
+      setPose("analista");
+      return;
+    }
+
+    // Música / chill / andino
+    if (q.includes("música") || q.includes("musica") || q.includes("canción") || q.includes("cancion") || q.includes("play") || q.includes("chill") || q.includes("andino") || q.includes("andina") || q.includes("poner música") || q.includes("pon música") || q.includes("pon musica")) {
+      addMsg("¡Por fin alguien con buen gusto! Dame un segundo que muevo mis patitas para buscar la mejor melodía.", "natsu");
+      setPose("cafecito");
+      var genero = "chill";
+      if (q.includes("andino") || q.includes("andina") || q.includes("puno") || q.includes("folclor") || q.includes("folklore")) genero = "andino";
+      if (q.includes("chill") || q.includes("relaja") || q.includes("suave")) genero = "chill";
+      // Si solo dice música sin género, preguntar
+      if ((q.includes("música") || q.includes("musica") || q.includes("canción") || q.includes("cancion") || q.includes("play")) && !q.includes("chill") && !q.includes("andino") && !q.includes("andina")) {
+        esperandoGenero = true;
+        addMsg("¡Genial! ¿Qué te provoca hoy? ¿Algo Chill para relajarse o algo Andino para sentirse en Puno?", "natsu");
+        return;
+      }
+      esperandoGenero = false;
+      var src = reproducirMusica(genero);
+      addMsg(genero === "andino" ? "Modo altiplano activado. Si quieres silencio, escríbeme «silencio»." : "Modo chill activado. Si quieres silencio, escríbeme «silencio».", "natsu");
+      return;
+    }
+
+    // Respuesta a género pendiente
+    if (esperandoGenero) {
+      if (q.includes("chill") || q.includes("relaja") || q.includes("suave") || q.includes("tranqui")) {
+        esperandoGenero = false;
+        reproducirMusica("chill");
+        addMsg("Perfecto. Música chill para tejer ideas con calma. Escribe «silencio» cuando quieras pausar.", "natsu");
+        setPose("cafecito");
+        return;
+      }
+      if (q.includes("andino") || q.includes("andina") || q.includes("puno") || q.includes("folclor")) {
+        esperandoGenero = false;
+        reproducirMusica("andino");
+        addMsg("¡A Puno en dos patitas! Música andina sonando. Escribe «silencio» si quieres pausar.", "natsu");
+        setPose("cafecito");
+        return;
+      }
+    }
+
+    // Productos
+    if (q.includes("chompa") || q.includes("bufanda") || q.includes("gorro") || q.includes("chalina") || q.includes("alpaca") || q.includes("producto") || q.includes("catálogo") || q.includes("catalogo") || q.includes("guante")) {
+      addMsg("¡Son mi orgullo! Puro trabajo de tejedoras peruanas. Echa un ojo al catálogo, que está en Productos.", "natsu");
+      setPose("costal");
+      return;
+    }
+
+    // Despedidas
+    if (q.includes("adiós") || q.includes("adios") || q.includes("chao") || q.includes("bye") || q.includes("hasta luego") || q.includes("nos vemos")) {
+      addMsg("¡Adiós! Vuelve pronto, que estaré aquí tomando mi cafecito.", "natsu");
+      setPose("cafecito");
+      setTimeout(cerrarChat, 1800);
+      return;
+    }
+
+    // Fallback
+    addMsg(random(FALLBACKS), "natsu");
+    setPose("analista");
+  }
+
+  // Eventos UI
+  $("natsuCerrar")?.addEventListener("click", cerrarChat);
+  $("natsuEnviar")?.addEventListener("click", function(){
+    if (!input) return;
+    var v = input.value;
+    input.value = "";
+    responderChat(v);
+  });
+  input?.addEventListener("keydown", function(e){
+    ultimaEscritura = Date.now();
+    if (e.key === "Enter") {
+      var v = input.value;
+      input.value = "";
+      responderChat(v);
+    }
+  });
+  input?.addEventListener("input", function(){ ultimaEscritura = Date.now(); });
+
+  $("natsuAtajos")?.addEventListener("click", function(e){
+    var b = e.target.closest("button");
+    if (!b) return;
+    ultimaInteraccionNatsu = Date.now();
+    if (b.getAttribute("data-chat")) {
+      responderChat(b.getAttribute("data-chat"));
+      return;
+    }
+    if (b.getAttribute("data-go")) {
+      window.location.href = b.getAttribute("data-go");
+    }
+  });
+
+  // Click en Natsu abre chat
+  if (el) {
+    el.addEventListener("click", function(e){
+      if (el._dragged) { el._dragged = false; return; }
+      // Si el globo proactivo está activo
+      if (globo && globo.classList.contains("clickable")) {
+        globo.classList.remove("clickable");
+        globo.classList.remove("visible");
+        proactivoMostrado = true;
+        abrirChat("¡Genial! ¿Qué te provoca hoy? ¿Algo Chill para relajarse o algo Andino para sentirse en Puno?");
+        esperandoGenero = true;
+        setPose("cafecito");
+        return;
+      }
+      abrirChat();
+      ultimaInteraccionNatsu = Date.now();
+    });
+  }
+
+  // Click en globo proactivo
+  if (globo) {
+    globo.addEventListener("click", function(){
+      if (!globo.classList.contains("clickable")) return;
+      globo.classList.remove("clickable");
+      globo.classList.remove("visible");
+      proactivoMostrado = true;
+      abrirChat("¡Genial! ¿Qué te provoca hoy? ¿Algo Chill para relajarse o algo Andino para sentirse en Puno?");
+      esperandoGenero = true;
+      setPose("cafecito");
+    });
+  }
+
+  // Proactivo a los 30s sin interactuar con Natsu
+  setInterval(function(){
+    if (chatAbierto) return;
+    if (proactivoMostrado) return;
+    if (el && el.classList.contains("esperando-consent")) return;
+    var idle = (Date.now() - ultimaInteraccionNatsu) / 1000;
+    if (idle >= 30) {
+      proactivoMostrado = true;
+      decirGlobo("Qué silencioso está esto... ¿No quieres que ponga música para alegrar el tejido?", 0, true);
+    }
+  }, 3000);
+
+  // Si no escribe en el chat 2 min: bostezar y cerrar
+  setInterval(function(){
+    if (!chatAbierto) return;
+    var idle = (Date.now() - ultimaEscritura) / 1000;
+    if (idle >= 120) {
+      setPose("dormida");
+      addMsg("Zzz... me dio sueño. Cuando vuelvas, haz clic en mí.", "natsu");
+      setTimeout(cerrarChat, 1500);
+      ultimaEscritura = Date.now();
+    }
+  }, 5000);
+
+  // Cualquier interacción con Natsu resetea proactivo timer al abrir
+  document.addEventListener("visibilitychange", function(){
+    if (!document.hidden) ultimaInteraccionNatsu = Date.now();
+  });
 })();
 </script>
 
