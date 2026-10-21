@@ -1,0 +1,1 @@
+{'base': 'img/natsu/base.webp', 'analista': 'img/natsu/analista.webp', 'costal': 'img/natsu/costal.webp', 'cotizacion': 'img/natsu/cotizacion.webp', 'dormida': 'img/natsu/dormida.webp', 'dormida_carta': 'img/natsu/dormida_carta.webp', 'cafecito': 'img/natsu/cafecito.webp'}
