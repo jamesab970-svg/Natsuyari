@@ -3349,6 +3349,92 @@
       background:transparent; border:none; cursor:pointer; text-decoration:underline;
     }
 
+  
+    /* Fixes subnav clickable + carrito + toast */
+    .subnav {
+      position: sticky !important;
+      top: var(--header-h, 72px) !important;
+      z-index: 4000 !important;
+      pointer-events: auto !important;
+    }
+    .subnav-inner, .subnav a {
+      pointer-events: auto !important;
+      position: relative;
+      z-index: 4001;
+    }
+    .header {
+      z-index: 5000 !important;
+    }
+    /* Toast más arriba (no tapa a Natsu ni la barra) */
+    .toast-pedido {
+      bottom: 170px !important;
+      right: 18px !important;
+      z-index: 9600 !important;
+    }
+    #barraPedido {
+      bottom: 150px !important;
+      z-index: 9500 !important;
+    }
+    /* Panel carrito lateral */
+    #panelPedido {
+      position: fixed;
+      top: 0; right: 0;
+      width: min(380px, 100vw);
+      height: 100vh;
+      background: #fff;
+      z-index: 9800;
+      box-shadow: -12px 0 40px rgba(0,0,0,0.18);
+      transform: translateX(105%);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      font-family: var(--fuente-texto, Inter, sans-serif);
+    }
+    #panelPedido.abierto { transform: translateX(0); }
+    #panelPedido .pp-head {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 1.1rem;
+      background: linear-gradient(135deg, #2F6B4F, #5C3D2E);
+      color: #fff;
+      font-family: var(--fuente-titulo, Poppins, sans-serif);
+      font-weight: 700;
+    }
+    #panelPedido .pp-head button {
+      background: rgba(255,255,255,0.2); border: none; color: #fff;
+      width: 32px; height: 32px; border-radius: 50%; font-size: 1.1rem; cursor: pointer;
+    }
+    #panelPedido .pp-body {
+      flex: 1; overflow-y: auto; padding: 1rem;
+    }
+    #panelPedido .pp-item {
+      display: flex; gap: 0.75rem; align-items: flex-start;
+      padding: 0.75rem 0; border-bottom: 1px solid #eee;
+    }
+    #panelPedido .pp-item strong { display: block; color: #5C3D2E; font-size: 0.92rem; }
+    #panelPedido .pp-item span { font-size: 0.8rem; color: #7a6a58; }
+    #panelPedido .pp-item button {
+      margin-left: auto; border: none; background: #f5e6e0; color: #8B3A2A;
+      border-radius: 8px; padding: 0.3rem 0.55rem; cursor: pointer; font-size: 0.75rem;
+    }
+    #panelPedido .pp-vacio { text-align: center; color: #8a7a6a; padding: 2rem 1rem; }
+    #panelPedido .pp-foot {
+      padding: 1rem; border-top: 1px solid #eee; display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    #panelPedido .pp-foot a, #panelPedido .pp-foot button.pp-wa {
+      display: block; text-align: center; text-decoration: none;
+      background: #25D366; color: #fff; font-weight: 700;
+      padding: 0.75rem; border-radius: 12px; border: none; cursor: pointer; font-size: 0.95rem;
+    }
+    #panelPedido .pp-foot button.pp-clear {
+      background: transparent; border: 1px solid #ddd; color: #666;
+      padding: 0.5rem; border-radius: 10px; cursor: pointer;
+    }
+    #panelPedidoBackdrop {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.35);
+      z-index: 9790; opacity: 0; visibility: hidden; transition: opacity 0.25s;
+    }
+    #panelPedidoBackdrop.abierto { opacity: 1; visibility: visible; }
+
   </style>
   
 </head>
@@ -3593,9 +3679,7 @@ document.getElementById("btnMenu")?.addEventListener("click", function () {
     var b = document.getElementById("badgeCarrito");
     if (b && n > 0) { b.textContent = n; b.hidden = false; }
   } catch(e) {}
-  document.getElementById("btnAbrirPedido")?.addEventListener("click", function(){
-    window.location.href = "productos.html#pedido";
-  });
+  /* carrito: ver script panelPedido */
 })();
 </script>
 </div>
@@ -3969,8 +4053,8 @@ var NATSU_IMGS = {
   window.__natsuChatReady = true;
 
   var MUSICA = {
-    chill: ["audio/chill1.mp3", "audio/chill2.mp3", "audio/chill3.mp3"],
-    andino: ["audio/andino1.mp3", "audio/andino2.mp3", "audio/andino3.mp3"]
+    chill: ["audio/chill1.mp3", "audio/chill2.mp3", "audio/chill3.mp3", "audio/chill4.mp3"],
+    andino: ["audio/andino1.mp3", "audio/andino2.mp3", "audio/andino3.mp3", "audio/andino4.mp3"]
   };
   var audioActual = null;
   var generoActual = null;
@@ -4336,6 +4420,87 @@ var NATSU_IMGS = {
   var st = document.createElement("style");
   st.textContent = ":focus-visible{outline:3px solid #2F6B4F!important;outline-offset:3px!important} #natsuPanel .msg{color:#2C2416} #natsuPanel .msg.user{color:#fff}";
   document.head.appendChild(st);
+})();
+</script>
+
+
+  <div id="panelPedidoBackdrop" aria-hidden="true"></div>
+  <div id="panelPedido" role="dialog" aria-label="Tu pedido" aria-modal="true">
+    <div class="pp-head">
+      <span>Tu pedido</span>
+      <button type="button" id="ppCerrar" aria-label="Cerrar">×</button>
+    </div>
+    <div class="pp-body" id="ppBody">
+      <p class="pp-vacio">Aún no hay prendas. Explora el catálogo y agrega al pedido.</p>
+    </div>
+    <div class="pp-foot">
+      <a class="pp-wa" id="ppWhatsApp" href="https://wa.me/51950179363" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+      <button type="button" class="pp-clear" id="ppVaciar">Vaciar pedido</button>
+    </div>
+  </div>
+
+
+<script>
+(function(){
+  var KEY = "natsuyari_pedido";
+  function $(id){ return document.getElementById(id); }
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY)||"[]"); } catch(e){ return []; } }
+  function save(arr){ localStorage.setItem(KEY, JSON.stringify(arr)); render(); updateBadge(); }
+  function updateBadge(){
+    var p = load();
+    var n = p.reduce(function(s,i){ return s+(i.cantidad||1); },0);
+    document.querySelectorAll(".badge-carrito, #badgeCarrito").forEach(function(b){
+      if (!b) return;
+      if (n>0){ b.textContent = n; b.hidden = false; }
+      else { b.textContent = ""; b.hidden = true; }
+    });
+  }
+  function render(){
+    var body = $("ppBody");
+    if (!body) return;
+    var p = load();
+    if (!p.length){
+      body.innerHTML = '<p class="pp-vacio">Aún no hay prendas. Explora el catálogo y agrega al pedido.</p>';
+    } else {
+      body.innerHTML = p.map(function(item, idx){
+        var nom = item.nombre || item.id || "Prenda";
+        var col = item.color ? " · " + item.color : "";
+        var cant = item.cantidad || 1;
+        return '<div class="pp-item" data-i="'+idx+'"><div><strong>'+nom+'</strong><span>'+col.replace(/^ · /,"")+ (col?"":"") +' ×'+cant+'</span></div><button type="button" data-del="'+idx+'">Quitar</button></div>';
+      }).join("");
+    }
+    var msg = "Hola NATSUYARI, quiero pedir:%0A"+p.map(function(i){
+      return "- "+(i.nombre||"Prenda")+(i.color?(" ("+i.color+")"):"")+" ×"+(i.cantidad||1);
+    }).join("%0A");
+    var wa = $("ppWhatsApp");
+    if (wa) wa.href = "https://wa.me/51950179363?text="+msg;
+  }
+  function open(){ render(); $("panelPedido")?.classList.add("abierto"); $("panelPedidoBackdrop")?.classList.add("abierto"); }
+  function close(){ $("panelPedido")?.classList.remove("abierto"); $("panelPedidoBackdrop")?.classList.remove("abierto"); }
+
+  $("ppCerrar")?.addEventListener("click", close);
+  $("panelPedidoBackdrop")?.addEventListener("click", close);
+  $("ppVaciar")?.addEventListener("click", function(){ save([]); });
+  $("ppBody")?.addEventListener("click", function(e){
+    var btn = e.target.closest("[data-del]");
+    if (!btn) return;
+    var i = parseInt(btn.getAttribute("data-del"),10);
+    var p = load(); p.splice(i,1); save(p);
+  });
+  document.getElementById("btnAbrirPedido")?.addEventListener("click", function(e){
+    e.preventDefault();
+    open();
+  });
+  document.addEventListener("keydown", function(e){ if (e.key==="Escape") close(); });
+
+  // badge on load
+  updateBadge();
+  // when localStorage changes from add
+  var orig = localStorage.setItem.bind(localStorage);
+  localStorage.setItem = function(k,v){
+    orig(k,v);
+    if (k===KEY){ updateBadge(); render(); }
+  };
 })();
 </script>
 
