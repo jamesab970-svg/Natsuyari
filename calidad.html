@@ -3435,6 +3435,55 @@
     }
     #panelPedidoBackdrop.abierto { opacity: 1; visibility: visible; }
 
+  
+    /* Banner de advertencia académica — muy visible */
+    .aviso-academico-top {
+      position: relative;
+      z-index: 4500;
+      background: linear-gradient(90deg, #8B1E1E 0%, #C43030 40%, #A67C00 100%);
+      color: #fff;
+      text-align: center;
+      padding: 0.85rem 1rem;
+      font-family: var(--fuente-titulo, Poppins, sans-serif);
+      font-weight: 700;
+      font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+      letter-spacing: 0.02em;
+      line-height: 1.35;
+      border-bottom: 4px solid #FFE08A;
+      box-shadow: 0 4px 18px rgba(139,30,30,0.35);
+    }
+    .aviso-academico-top span {
+      display: inline-block;
+      background: rgba(0,0,0,0.2);
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      margin-right: 0.4rem;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .aviso-academico-footer {
+      background: #3d1212;
+      color: #fff;
+      text-align: center;
+      padding: 1.25rem 1.25rem 1.4rem;
+      border-top: 4px solid #FFE08A;
+    }
+    .aviso-academico-footer strong {
+      display: block;
+      font-family: var(--fuente-titulo, Poppins, sans-serif);
+      font-size: clamp(1.05rem, 2.8vw, 1.35rem);
+      margin-bottom: 0.4rem;
+      color: #FFE08A;
+    }
+    .aviso-academico-footer p {
+      margin: 0 auto;
+      max-width: 52rem;
+      font-size: clamp(0.9rem, 2.2vw, 1.05rem);
+      line-height: 1.5;
+      opacity: 0.95;
+    }
+
   </style>
   
 </head>
@@ -3443,6 +3492,11 @@
   <div class="bg-decor" aria-hidden="true">
 
     <div class="hebra h-a"></div>
+  <div class="aviso-academico-top" role="note" aria-label="Advertencia de proyecto académico">
+    <span>Advertencia</span>
+    Este sitio es un <strong>proyecto académico en desarrollo</strong> (UNA Puno). No es una tienda real ni una empresa operativa.
+  </div>
+
     <div class="hebra h-b"></div>
     <div class="hebra h-c"></div>
     <div class="hebra h-d"></div>
@@ -3681,6 +3735,16 @@
         </span>
       </div>
     </div>
+  
+      <div class="aviso-academico-footer" role="note">
+        <strong>ADVERTENCIA — PROYECTO ACADÉMICO</strong>
+        <p>
+          Este sitio web y la marca NATSUYARI se presentan únicamente como <strong>proyecto académico en desarrollo</strong>
+          de la Universidad Nacional del Altiplano (UNA Puno). <strong>No constituye una oferta comercial real</strong>,
+          ni una empresa en operación. Los pedidos, contactos y contenidos son de carácter demostrativo / educativo.
+        </p>
+      </div>
+
   </footer>
 
   
